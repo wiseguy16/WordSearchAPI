@@ -25,6 +25,12 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func testButton(sender: UIButton)
+    {
+        anApiController.puzzlePostAPI("20", height: "20", words: "10", minLength: "3", maxLength: "8", capabilities: ["comtheironyardcapabilityAngleBackwardsDownCapability",
+                                      "comtheironyardcapabilityHorizontalCapability"])
+        
+    }
 
 }
 

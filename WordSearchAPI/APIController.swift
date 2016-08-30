@@ -50,6 +50,7 @@ class APIController
         
         firstTask.resume()
         
+        print(capabilities)
         return capabilities
         
     }
@@ -109,6 +110,7 @@ class APIController
         do {
             let myJSON =  try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
             
+            print(myJSON)
             if let parseJSON = myJSON {
                 
                 // Now we can access values by its keys
