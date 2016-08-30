@@ -8,10 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    var anApiController = APIController()
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        anApiController.puzzleGetAPI()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
