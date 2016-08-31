@@ -18,17 +18,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwN-8Z-W2y">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <rect key="frame" x="377" y="385" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="testButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U7Q-gm-vU9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-c5-geY">
+                                <rect key="frame" x="157" y="385" width="87" height="30"/>
+                                <state key="normal" title="Make Puzzle"/>
+                                <connections>
+                                    <action selector="makePuzzleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gp6-gn-abl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CwN-8Z-W2y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7di-MA-AAl"/>
-                            <constraint firstItem="CwN-8Z-W2y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NeP-Qy-wqm"/>
+                            <constraint firstItem="CwN-8Z-W2y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="7di-MA-AAl"/>
+                            <constraint firstItem="CwN-8Z-W2y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="NeP-Qy-wqm"/>
+                            <constraint firstItem="2Fd-c5-geY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="Pll-OP-Y8O"/>
+                            <constraint firstItem="2Fd-c5-geY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="ZpC-1J-zEQ"/>
                         </constraints>
                     </view>
                 </viewController>

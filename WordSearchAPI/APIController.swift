@@ -10,9 +10,14 @@ import Foundation
 
 class APIController
 {
+    var delegate: APIControllerProtoolDelegate?
+  //  var longResponseString: [String: AnyObject]
+    
+    
     func puzzleGetAPI() -> [[String: AnyObject]]
     {
         var capabilities = [[String: AnyObject]]()
+    //    var thePuzzle = [[String: AnyObject]]()
         
         let firstURL = NSURL(string: "http://54.211.91.163:8080/capabilities")
         let firstRequest = NSURLRequest(URL: firstURL!)
@@ -25,11 +30,11 @@ class APIController
             }
             
             // You can print out response object
-            print("response = \(response)")
+       //     print("response = \(response)")
             
             // Print out response body
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+        //    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+           // print("responseString = \(responseString)")
             do {
                 let myJSON =  try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSArray
                 
@@ -50,14 +55,19 @@ class APIController
         
         firstTask.resume()
         
-        print(capabilities)
+       // print(capabilities)
         return capabilities
         
     }
     
-    func puzzlePostAPI(width: String, height: String, words: String, minLength: String, maxLength: String, capabilities: [String]) //-> Puzzle
+    
+    
+    
+    func puzzlePostAPI(width: String, height: String, words: String, minLength: String, maxLength: String, capabilities: [String]) //-> ([[String]], [[String: AnyObject]])   //-> Puzzle
     {
         let seed = Int(arc4random())
+       // var aPuzzle: [[String]]
+       // var theWords = [[String: AnyObject]]()
         
         var jsonString: NSData?
     
@@ -100,22 +110,28 @@ class APIController
         }
         
         // You can print out response object
-        print("response = \(response)")
+       // print("response = \(response)")
         
         // Print out response body
-        let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-        print("responseString = \(responseString)")
+     //   let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+       // print("responseString = \(responseString)")
         
         //Let's convert response sent from a server side script to a NSDictionary object:
         do {
             let myJSON =  try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
             
-            print(myJSON)
+            //print(myJSON!)
             if let parseJSON = myJSON {
                 
                 // Now we can access values by its keys
-                let aPuzzle = parseJSON["puzzle"] as? [[String]]
-                let theWords = parseJSON["words"] as? [[String: AnyObject]]
+               // print(parseJSON)
+            
+                self.delegate!.gotThePuzzle(parseJSON)
+            //  let aPuzzle = (parseJSON["puzzle"] as? [[String]]!)
+            //  let theWords = (parseJSON["words"] as? [[String: AnyObject]])
+                
+             //   self.delegate!.gotThePuzzle(aPuzzle!, theWords: theWords!)
+                
                // print("firstNameValue: \(firstNameValue)")
             }
         } catch {
@@ -123,8 +139,7 @@ class APIController
         }
     }
     task.resume()
-    
-    
+       return
     }
     
     
